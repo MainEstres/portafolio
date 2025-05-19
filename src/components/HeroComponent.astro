@@ -1,0 +1,39 @@
+---
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+---
+
+<div class="flex gap-4 mb-4">
+    <img class="rounded-full size-24" src="/yo.webp" alt="Nicolas Lepe" />
+    <Badge>Disponible para trabajar</Badge>
+  </div>
+  <h1 class="text-5xl font-bold flex items-center gap-x-5">
+    Holaa, Soy Nicolás Lepe
+  </h1>
+  <h2 class="text-lg pt-2">
+    Un diseñador web que quiso <span class="text-green-600 font-bold"
+      >reinventarse y seguir una profesión que le abriera un mundo de
+      posibilidades</span
+    >, si bien no tengo experiencia en desarrollo front end, estoy lleno de
+    energía y motivación para ello, busco seguir aprendiendo y tener la
+    oportunidad de trabajar en un equipo de desarrollo, ya que con mi
+    compromiso e iniciativa siento que seria un gran aporte a un equipo.
+  </h2>
+
+  <nav class="flex gap-x-4 flex-wrap pt-6 sm: gap-y-4">
+    <SocialPill href="https://www.linkedin.com/in/nicolas-lepe-silva/">
+      <LinkedIn class="size-6" />
+      LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/MainEstres">
+      <GitHub class="size-6" />
+      GitHub
+    </SocialPill>
+    <SocialPill>
+      <MailIcon class="size-6" />
+      nikolaslepe32@gmail.com
+    </SocialPill>
+  </nav>

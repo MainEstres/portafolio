@@ -1,0 +1,103 @@
+<script>
+  import { tsParticles } from "@tsparticles/engine";
+  import { loadAll } from "@tsparticles/all";
+
+  const options = {
+    key: "mouseParticle",
+    name: "Mouse Particle",
+
+    fullScreen: {
+      zIndex: -1
+    },
+
+    particles: {
+      number: {
+        value: 0,
+      },
+      color: {
+        value: ["#ff0000", "#00ff00", "#0000ff"],
+        animation: {
+          enable: true,
+          speed: 180,
+          sync: true,
+        },
+      },
+      effect: {
+        type: "trail",
+        options: {
+          trail: {
+            length: 10,
+            minWidth: 2,
+          },
+        },
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: 3,
+      },
+    },
+    interactivity: {
+      events: {
+        onHover: {
+          enable: true,
+          mode: "particle",
+        },
+      },
+      modes: {
+        particle: {
+          replaceCursor: false,
+          pauseOnStop: false,
+        },
+      },
+    },
+  };
+
+  (async () => {
+    await loadAll(tsParticles);
+    await tsParticles.load({ id: "tsparticles", options });
+  })();
+</script>
+
+<style>
+  #title-move {
+    position: fixed;
+    left: calc(50% - 218px);
+    top: calc(50% - 24px);
+  }
+
+  #refresh-config {
+    bottom: 5px;
+    left: 5px;
+  }
+
+  /* ---- reset ---- */
+  .github {
+    bottom: 10px;
+    right: 10px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 0 12px 6px 12px;
+    border: 1px solid #000;
+  }
+
+  .github a:hover,
+  .github a:link,
+  .github a:visited,
+  .github a:active {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .github img {
+    height: 30px;
+  }
+
+  .github #gh-project {
+    font-size: 20px;
+    padding-left: 5px;
+    font-weight: bold;
+    vertical-align: bottom;
+  }
+</style>

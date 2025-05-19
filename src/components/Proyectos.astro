@@ -1,0 +1,112 @@
+---
+import ReactIcon from "./icons/ReactIcon.astro";
+import ExpressIcon from "./icons/ExpressIcon.astro";
+import VueIcon from "./icons/VueIcon.astro";
+import TaildwindIcon from "./icons/TailwindIcon.astro";
+import WixIcon from "./icons/WixIcon.astro";
+import BtnLinks from "./BtnLinks.astro";
+import GitHub from "./icons/GitHub.astro";
+import LinkIcon from "./icons/LinkIcon.astro";
+
+const TAGS = {
+  REACT: {
+    name: "React",
+    class: "bg-black text-white",
+    icon: ReactIcon,
+  },
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-black text-white",
+    icon: ExpressIcon,
+  },
+  VUE: {
+    name: "Vue.js",
+    class: "bg-black text-white",
+    icon: VueIcon,
+  },
+  TAILWIND: {
+    name: "Tailwind css",
+    class: "bg-blue-900 text-white",
+    icon: TaildwindIcon,
+  },
+  WIX: {
+    name: "Wix",
+    class: "bg-black text-white",
+    icon: WixIcon,
+  },
+};
+
+const PROYECTOS = [
+  {
+    title: "DevTree",
+    description:
+      "Una app donde puedes mostrar tus redes sociales de manera mas organizada, creada con React y express",
+    link: "https://devtree-mainestres.netlify.app/",
+    github: "#",
+    image: "/proyects/dev-tree.png",
+    tags: [TAGS.REACT, TAGS.EXPRESS, TAGS.TAILWIND],
+  },
+  {
+    title: "CsAbogados",
+    description:
+      "Una pagina web enfocada en dar a conocer un buffet de abogados, de una larga trayectoria y de muy buena fama, diseñada en WIX junto con la empresa Pizarra Studio.",
+    link: "https://www.csabogados.cl/",
+    github: "",
+    image: "/proyects/cs-abogados.png",
+    tags: [TAGS.WIX],
+  },
+  {
+    title: "Rick y Morty API",
+    description:
+      "Una plataforma donde puse aprueba conocimientos de Vue.js, consumiendo la api de Rick y Morty estilandolos con Tailwind, la cual se encuentra en constante cambio.",
+    link: "https://app-rick-morty-4681e.web.app/",
+    github: "https://github.com/MainEstres/app-rick-morty",
+    image: "/proyects/rick-morty.png",
+    tags: [TAGS.VUE, TAGS.TAILWIND],
+  },
+];
+---
+
+{
+  PROYECTOS.map(({ title, description, image, tags, link, github }) => (
+    <article class="flex gap-x-4 py-6 flex-col sm:flex-row">
+      <div class="w-full">
+        <img
+          class="object-cover object-top w-full h-56 rounded-xl"
+          src={image}
+          alt={`Imagen del proyecto ${title}`}
+        />
+      </div>
+      <div class=" w-full">
+        <h3 class="text-2xl font-semibold mb-2 text-green-600">{title}</h3>
+        <p class="text-lg font-normal mb-4">{description}</p>
+        <ul class="flex flex-row gap-x-4">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex items-center gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <BtnLinks href={github}>
+              <GitHub class="size-6"/>
+              Code
+            </BtnLinks>
+          )}
+          {link && (
+            <BtnLinks href={link}>
+              <LinkIcon class="size-6"/>
+              Demo
+            </BtnLinks>
+          )}
+        </footer>
+      </div>
+    </article>
+  ))
+}

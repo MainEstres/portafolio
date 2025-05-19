@@ -1,0 +1,26 @@
+---
+import EducationItem from "./EducationItem.astro";
+
+const EDUCATION = [
+{
+    date: "Desafio Latam - 2024",
+    title: "Desarrollo Front-End Trainie",
+    description: "Especialización en Vue.js, Node.js y tecnologías modernas. Desarrollo de aplicaciones web responsivas.",
+  },
+  {
+    date: "Instituto DuocUc - 2023",
+    title: "Diseño Grafico Mencion Interfaces e Interacciones",
+    description: "Desarrollo de habilidades de Diseño UI y Experiencia de usuarios ",
+  }
+];
+---
+
+<ol class="relative border-s-1 border-gray-200 dark:border-gray-700">
+  {
+    EDUCATION.map((item) => (
+      <li class="mb-10 ms-4">
+        <EducationItem {...item} />
+      </li>
+    ))
+  }
+</ol>
