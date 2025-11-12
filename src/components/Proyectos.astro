@@ -7,8 +7,20 @@ import WixIcon from "./icons/WixIcon.astro";
 import BtnLinks from "./BtnLinks.astro";
 import GitHub from "./icons/GitHub.astro";
 import LinkIcon from "./icons/LinkIcon.astro";
+import JavaIcon from "./icons/JavaIcon.astro";
+import SqlIcon from "./icons/SqlIcon.astro";
 
 const TAGS = {
+  SQL: {
+    name: "MySQL",
+    class: "bg-black text-white",
+    icon: SqlIcon,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-black text-white",
+    icon: JavaIcon,
+  },
   REACT: {
     name: "React",
     class: "bg-black text-white",
@@ -38,6 +50,14 @@ const TAGS = {
 
 const PROYECTOS = [
   {
+    title: "Pyme Center",
+    description:
+      "Nuestro proyecto consiste en una página web gratuita para prestadores principalmente de servicios presenciales, como barberías, Salones de belleza, kinesiólogos y gimnasios.",
+    github: "https://github.com/AlxDRF616/Proyecto_PymeCenter.git",
+    image: "/proyects/pyme_center.png",
+    tags: [TAGS.JAVA, TAGS.SQL],
+  },
+  {
     title: "DevTree",
     description:
       "Una app donde puedes mostrar tus redes sociales de manera mas organizada, creada con React y express",
@@ -57,11 +77,12 @@ const PROYECTOS = [
   },
   {
     title: "Descubre el Pokemon",
-    description: "Una aplicación donde se ponen a prueba conocimientos en Vue.js y Axios para consumir la PokeAPI, donde puedes descubrir los Pokémon disponibles en ella.",
+    description:
+      "Una aplicación donde se ponen a prueba conocimientos en Vue.js y Axios para consumir la PokeAPI, donde puedes descubrir los Pokémon disponibles en ella.",
     link: "https://app-pokemon-fa74d.web.app/",
     github: "https://github.com/MainEstres/poke-api-vue",
     image: "/proyects/poke_app.png",
-    tags: [TAGS.VUE]
+    tags: [TAGS.VUE],
   },
   {
     title: "Rick y Morty API",
@@ -71,7 +92,7 @@ const PROYECTOS = [
     github: "https://github.com/MainEstres/app-rick-morty",
     image: "/proyects/rick-morty.png",
     tags: [TAGS.VUE, TAGS.TAILWIND],
-  }
+  },
 ];
 ---
 
@@ -103,13 +124,13 @@ const PROYECTOS = [
         <footer class="flex items-end justify-start mt-4 gap-x-4">
           {github && (
             <BtnLinks href={github}>
-              <GitHub class="size-6"/>
+              <GitHub class="size-6" />
               Code
             </BtnLinks>
           )}
           {link && (
             <BtnLinks href={link}>
-              <LinkIcon class="size-6"/>
+              <LinkIcon class="size-6" />
               Demo
             </BtnLinks>
           )}
